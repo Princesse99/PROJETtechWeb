@@ -7,11 +7,11 @@ const PromoBanner = () => {
   const navigate = useNavigate();
 
   
-  const promoProductId = '651a2b3c4d5e6f7g8h9i0j1k'; 
+  ;
 
   const handleShopNow = () => {
   
-    navigate(`/commande/${promoProductId}`);
+    navigate(`/page`);
   };
 
   

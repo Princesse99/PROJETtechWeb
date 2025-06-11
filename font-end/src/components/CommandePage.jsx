@@ -13,23 +13,22 @@ const CommandePage = () => {
   const [error, setError] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0); 
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/products/${id}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Produit non trouvé");
-        return res.json();
-      })
-      .then((data) => {
-        setProduit(data);
-        setLoading(false);
-        
-        setCurrentImageIndex(0);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [id]);
+useEffect(() => {
+  fetch(`http://localhost:5000/api/products/${id}`)
+    .then((res) => {
+      if (!res.ok) throw new Error("Produit non trouvé");
+      return res.json();
+    })
+    .then((data) => {
+      setProduit(data);
+      setLoading(false);
+      setCurrentImageIndex(0);
+    })
+    .catch((err) => {
+      setError(err.message);
+      setLoading(false);
+    });
+}, [id]);
 
   const handleSubmit = (commandeData) => {
     if (!produit) {
